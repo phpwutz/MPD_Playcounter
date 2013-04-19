@@ -25,10 +25,9 @@ function playListener($songFile){
 		exec('python sticker.py set "'.$songFile.'" playcount '.$newCount, $ret);
 		var_dump($ret);
 	}
-	//exec('python sticker.py set "'.$songFile.'" lastPlayed '.$newCount, $ret);
+	exec('python sticker.py set "'.$songFile.'" lastPlayed '.time(), $ret);
 };
 
 $listener = new mpdEventListener($mpd);
 $listener->bind(MPDEVENTLISTENER_ONSONGCHANGE, "playListener");
 $listener->startListening();
-//playListener("Tomte/Heureka/07 es ist so dass du fehlst.mp3");

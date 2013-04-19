@@ -1,5 +1,7 @@
 #! /usr/bin/env python
 
+# This file belongs actually to the python-mpd project and is the same copyright (afaik)
+
 # Edit these
 HOST = "192.168.1.107"
 PORT = 6600

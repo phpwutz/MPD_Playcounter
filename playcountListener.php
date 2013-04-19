@@ -7,6 +7,8 @@ $pwd = null;
 $debug = false;
 $mpd = new mpd($srv, $port, $pwd, $debug);
 
+echo "started...";
+
 function playListener($songFile){
 	//echo $songFile . " was played\n";
 	$ret = array();
@@ -21,7 +23,9 @@ function playListener($songFile){
 		//var_dump($currentCount);
 		$newCount = $currentCount + 1;
 		exec('python sticker.py set "'.$songFile.'" playcount '.$newCount, $ret);
+		var_dump($ret);
 	}
+	//exec('python sticker.py set "'.$songFile.'" lastPlayed '.$newCount, $ret);
 };
 
 $listener = new mpdEventListener($mpd);
